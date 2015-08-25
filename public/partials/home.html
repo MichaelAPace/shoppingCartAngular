@@ -1,0 +1,44 @@
+
+<table class="g">
+<tr>
+  <th class="th-tea">Tea</th>
+  <th class="th-information">
+    Information
+    <span style="float:right ; margin-right:5px">Sort By Price:
+      <select name="" id="" ng-model="price">
+        <option value=""></option>
+        <option value="-price">High</option>
+        <option value="price">Low</option>
+      </select>
+    </span>
+  </th>
+</tr>
+</table>
+
+<table ng-repeat="item in items | filter:{name:search} | filter:{categories : selectCategory} | orderBy: price">
+  <td class="td-image">
+    <img ng-src="{{item.imageUrl}}"></img>
+  </td>
+<td class="td-teaData">
+  <h3>{{item.name}}
+    <span style="display:inline-block ; float:right ; margin-right:5px">Quantity:
+    <select name="" id="" ng-model="quantity" ng-init="quantity = '1'">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select><button ng-click="addToCart(item, quantity)">Add to Bag</button></span></h3>
+
+  <br>
+  <b>Price:</b>{{item.price | currency}}
+  <br>
+  <b>Caffeine Scale:</b>{{item.caffeineScale}}
+  <br>
+  <b>Ingredients:</b>{{item.ingredients}}
+  <br>
+  <b>Rating:</b>{{item.rating}}
+  <br>
+  <b>In Stock?</b>{{item.inStock}}
+  <br>
+  <b>Categories:</b><li ng-repeat="i in item.categories">{{i}}</li>
+</td>
+</table>

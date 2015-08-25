@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="shoppingCartApp">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css"/>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <base href="/">
+  <title>Document</title>
+</head>
+<body ng-controller="HomeController">
+  <h1 style="margin-left:30px">Welcome to MEAN Tea</h1>
+    <nav class="nav">
+      <div class="navelements"><a href="/"><h4>Home</h4></a></div>
+      <div class="navelements"><h4>About</h4></div>
+      <div class="navelements"><h4>Contact</h4></div>
+     </div>
+    </nav>
+    <div class="search">
+      <div class="searchelements"><p>Search by category:</p>
+      <select name="" id="" ng-model="selectCategory">
+        <option value=""></option>
+        <option value="dark">dark</option>
+        <option value="cold">cold</option>
+        <option value="awesome">awesome</option>
+        <option value="dry">dry</option>
+        <option value="hot">hot</option>
+        <option value="summer">summer</option>
+        <option value="lucid">lucid</option>
+        <option value="warm">warm</option>
+        <option value="winter">winter</option>
+        <option value="spring">spring</option>
+
+      </select>
+    </div>
+      <div class="searchelements"><p>Search by name:</p> <input type="text" ng-model="search">
+      <div class="searchelements"><a href="/cart"><button>Checkout&nbsp;|&nbsp;Bag:
+        <span ng-show="shoppingCart.length > 0">&nbsp;{{shoppingCart.length}}</span>
+        <ng-pluralize count="shoppingCart.length" when="{'0': 'Empty'}"></ng-pluralize></button></a>
+      </div>
+    </div>
+    </div>
+  <div ng-view></div>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
+  <script src="/js/module.js"></script>
+  <script src="/js/controllers.js"></script>
+  <script src="/js/routes.js"></script>
+</body>
+</html>

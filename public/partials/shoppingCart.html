@@ -1,0 +1,27 @@
+
+<table ng-repeat="item in shoppingCart">
+  <td class="td-image">
+    <img ng-src="{{item.imageUrl}}"></img>
+  </td>
+<td class="td-teaData">
+  <h3>{{item.name}}</h3>
+  <br>
+  <b>Price:</b>{{item.price | currency}}
+  <br>
+  <b>Caffeine Scale:</b>{{item.caffeineScale}}
+  <br>
+  <b>Ingredients:</b>{{item.ingredients}}
+  <br>
+  <b>Rating:</b>{{item.rating}}
+  <br>
+  <b>In Stock?</b>{{item.inStock}}
+  <br>
+  <b>Categories:</b><li ng-repeat="i in item.categories">{{i}}</li>
+</td>
+
+<td>Quantity: {{item.quantity}}</td>
+<td>
+  <button ng-click="editItem()">Edit</button>
+  <button ng-click="removeItem()">Remove</button>
+</td>
+</table>
